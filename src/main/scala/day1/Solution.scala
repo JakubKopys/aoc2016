@@ -1,12 +1,5 @@
 package day1
 
-class Movement(val direction: Char, val distance: Int) {
-  val isRight: Boolean = direction == 'R'
-  val isLeft: Boolean = direction == 'L'
-
-  override def toString: String = s"Movement($direction, $distance)"
-}
-
 class Point(val x: Int, val y: Int) {
   def +(that: Point): Point = new Point(x + that.x, y + that.y)
   def -(that: Point): Point = new Point(x - that.x, y - that.y)
@@ -36,8 +29,7 @@ object Solution {
   private class Solution {
     def run(input: List[String]): Int = {
       val position = new Position()
-      val movements: List[Movement] =
-        input.map(i => new Movement(i(0), i.substring(1).toInt))
+      val movements: List[Movement] = input.map(i => Movement.fromString(i))
 
       movements.foreach(movement => position.move(movement))
 
