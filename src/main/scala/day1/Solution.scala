@@ -11,7 +11,7 @@ class Position() {
   private var current = new Point(0, 0)
   private var direction: Direction = new North()
 
-  def move(m: Movement): Unit = {
+  def move(m: Move): Unit = {
     val (dir, posChange) = direction.move(m)
 
     direction = dir
@@ -29,7 +29,7 @@ object Solution {
   private class Solution {
     def run(input: List[String]): Int = {
       val position = new Position()
-      val movements: List[Movement] = input.map(i => Movement.fromString(i))
+      val movements: List[Move] = input.map(i => Move.fromString(i))
 
       movements.foreach(movement => position.move(movement))
 
