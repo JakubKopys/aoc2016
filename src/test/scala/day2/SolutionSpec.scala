@@ -17,4 +17,18 @@ class SolutionSpec extends AnyFlatSpec with Matchers {
 
     Solution.run2(input) shouldEqual "5DB3"
   }
+
+  ".functionalRun method" should "return correct result" in {
+    val input: List[List[Char]] =
+      "ULL".toList :: "RRDDD".toList :: "LURDL".toList :: "UUUUD".toList :: Nil
+
+    Solution.kindaFunctionalButNotReally(input) shouldEqual "1985"
+  }
+
+  ".functionalRun2 method" should "return correct result" in {
+    val input: List[List[Char]] =
+      "ULL".toList :: "RRDDD".toList :: "LURDL".toList :: "UUUUD".toList :: Nil
+
+    Solution.kindaFunctionalButNotReally2(input) shouldEqual "5DB3"
+  }
 }
